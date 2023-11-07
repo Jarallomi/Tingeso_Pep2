@@ -1,0 +1,12 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: backend-config-server
+  cloud:
+    config:
+      server:
+        git:
+          default-label: main
+          uri: https://github.com/Jarallomi/Tingeso_Pep2
+          search-paths: "config-data"

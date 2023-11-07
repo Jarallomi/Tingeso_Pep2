@@ -1,0 +1,22 @@
+spring:
+  devtools:
+    restart:
+      aditional-paths: src/main/java
+  application:
+    name: estudiante
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+  datasource:
+    plataform: postgres
+    driver-class-name: org.postgresql.Driver
+    dbname: topEducationOtro
+    url: jdbc:postgresql://localhost:5432/estudiantes
+    username: postgres
+    password: 2905
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8081
