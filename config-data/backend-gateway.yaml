@@ -34,3 +34,7 @@ spring:
           uri: lb://subir-archivo
           predicates:
             - Path=/subirArchivo/**
+        - id: resumen-cuotas
+          uri: lb://resumen-cuotas
+          predicates:
+            - Path=/resumen/**

@@ -12,7 +12,7 @@ spring:
   datasource:
     plataform: postgres
     driver-class-name: org.postgresql.Driver
-    dbname: topEducationOtro
+    dbname: archivos
     url: jdbc:postgresql://localhost:5432/archivos
     username: postgres
     password: 2905

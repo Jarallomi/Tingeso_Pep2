@@ -12,7 +12,7 @@ spring:
   datasource:
     plataform: postgres
     driver-class-name: org.postgresql.Driver
-    dbname: topEducationOtro
+    dbname: resumen
     url: jdbc:postgresql://localhost:5432/resumen
     username: postgres
     password: 2905

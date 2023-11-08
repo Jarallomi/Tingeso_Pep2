@@ -1,0 +1,3 @@
+insert into estudiantes(rut, nombres, apellidos, fecha_nacimiento, tipo_colegio, nombre_colegio, anio_egreso, tipo_pago, n_cuotas) values ('20.640.480-9', 'Simón', 'Sáez', '2001-03-16', 'Municipal', 'Licarayen', 2020, 'Contado', 1);
+insert into estudiantes(rut, nombres, apellidos, fecha_nacimiento, tipo_colegio, nombre_colegio, anio_egreso, tipo_pago, n_cuotas) values ('19.992.746-9', 'Bruno', 'Jaramillo', '2005-08-21', 'Municipal', 'Nido de Aguilas', 2016, 'Cuotas', 5);
+insert into estudiantes(rut, nombres, apellidos, fecha_nacimiento, tipo_colegio, nombre_colegio, anio_egreso, tipo_pago, n_cuotas) values ('11.222.333-k', 'Repetible', 'Raro', '2003-02-01', 'Municipal', 'abbccc', 2021, 'Cuotas', 3);

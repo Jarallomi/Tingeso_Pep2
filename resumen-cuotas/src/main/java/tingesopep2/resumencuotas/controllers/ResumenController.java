@@ -5,9 +5,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import tingesopep2.resumencuotas.entities.ResumenEntity;
 import tingesopep2.resumencuotas.services.ResumenService;
 
 import java.util.Date;
+import java.util.List;
 
 @RestController
 @RequestMapping("/resumen")
@@ -21,6 +23,12 @@ public class ResumenController {
         resumenService.guardarResumen();
         model.addAttribute("resumenes", resumenService.obtenerTodosLosResumenes());
         return "lista";
+    }
+
+    @GetMapping("/")
+    public List<ResumenEntity> mostrarResumen() {
+        resumenService.guardarResumen();
+        return resumenService.obtenerTodosLosResumenes();
     }
 
     @GetMapping("/registrarPagoCuotas")
