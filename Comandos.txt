@@ -61,3 +61,7 @@ kubectl apply -f estudiante-deployment-service.yml
 kubectl apply -f resumen-cuotas-deployment-service.yml
 kubectl apply -f subir-archivo-deployment-service.yml
 kubectl apply -f backend-gateway-deployment-service.yml
+
+minikube service tingeso-pep2
+
+minikube tunnel
