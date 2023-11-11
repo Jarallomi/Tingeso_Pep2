@@ -15,8 +15,8 @@ spec:
         app: tingeso-pep2-deployment
     spec:
       containers:
-        - name: pep2_tingeso-pep2
-          image: jaramillo1337/tingeso-pep2:latest
+        - name: pep2-tingeso-pep2
+          image: jaramillo1337/pep2-tingeso-pep2:latest
           ports:
             - containerPort: 3000
 ---

@@ -15,8 +15,8 @@ spec:
         app: estudiante-deployment
     spec:
       containers:
-        - name: pep2_estudiante
-          image: jaramillo1337/pep2_estudiante:latest
+        - name: pep2-estudiante
+          image: jaramillo1337/pep2-estudiante:latest
           ports:
             - containerPort: 8081
           env:

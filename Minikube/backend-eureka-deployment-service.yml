@@ -15,8 +15,8 @@ spec:
         app: backend-eureka-deployment
     spec:
       containers:
-        - name: pep2_backend-eureka
-          image: jaramillo1337/pep2_backend-eureka:latest
+        - name: pep2-backend-eureka
+          image: jaramillo1337/pep2-backend-eureka:latest
           ports:
             - containerPort: 8081
           env:

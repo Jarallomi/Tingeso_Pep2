@@ -15,8 +15,8 @@ spec:
         app: subir-archivo-deployment
     spec:
       containers:
-        - name: pep2_subir-archivo
-          image: jaramillo1337/pep2_subir-archivo:latest
+        - name: pep2-subir-archivo
+          image: jaramillo1337/pep2-subir-archivo:latest
           ports:
             - containerPort: 8081
           env:

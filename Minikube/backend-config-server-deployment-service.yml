@@ -15,8 +15,8 @@ spec:
         app: backend-config-server-deployment
     spec:
       containers:
-        - name: pep2_backend-config-server
-          image: jaramillo1337/pep2_backend-config-server:latest
+        - name: pep2-backend-config-server
+          image: jaramillo1337/pep2-backend-config-server:latest
           ports:
             - containerPort: 8081
 ---

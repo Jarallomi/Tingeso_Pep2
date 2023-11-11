@@ -15,8 +15,8 @@ spec:
         app: resumen-cuotas-deployment
     spec:
       containers:
-        - name: pep2_resumen-cuotas
-          image: jaramillo1337/pep2_resumen-cuotas:latest
+        - name: pep2-resumen-cuotas
+          image: jaramillo1337/pep2-resumen-cuotas:latest
           ports:
             - containerPort: 8081
           env:

@@ -1,41 +1,63 @@
 cd backend-config-server
 mvn clean install -DskipTests=True
-docker build -t jaramillo1337/pep2_backend-config-server .
-docker push jaramillo1337/pep2_backend-config-server
+docker build -t jaramillo1337/pep2-backend-config-server .
+docker push jaramillo1337/pep2-backend-config-server
 cd ../
 
 cd backend-eureka
 mvn clean install -DskipTests=True
-docker build -t jaramillo1337/pep2_backend-eureka .
-docker push jaramillo1337/pep2_backend-eureka
+docker build -t jaramillo1337/pep2-backend-eureka .
+docker push jaramillo1337/pep2-backend-eureka
 cd ../
 
 cd backend-gateway
 mvn clean install -DskipTests=True
-docker build -t jaramillo1337/pep2_backend-gateway .
-docker push jaramillo1337/pep2_backend-gateway
+docker build -t jaramillo1337/pep2-backend-gateway .
+docker push jaramillo1337/pep2-backend-gateway
 cd ../
 
 cd estudiante
 mvn clean install -DskipTests=True
-docker build -t jaramillo1337/pep2_estudiante .
-docker push jaramillo1337/pep2_estudiante
+docker build -t jaramillo1337/pep2-estudiante .
+docker push jaramillo1337/pep2-estudiante
 cd ../
 
 cd subir-archivo
 mvn clean install -DskipTests=True
-docker build -t jaramillo1337/pep2_subir-archivo .
-docker push jaramillo1337/pep2_subir-archivo
+docker build -t jaramillo1337/pep2-subir-archivo .
+docker push jaramillo1337/pep2-subir-archivo
 cd ../
 
 cd resumen-cuotas
 mvn clean install -DskipTests=True
-docker build -t jaramillo1337/pep2_resumen-cuotas .
-docker push jaramillo1337/pep2_resumen-cuotas
+docker build -t jaramillo1337/pep2-resumen-cuotas .
+docker push jaramillo1337/pep2-resumen-cuotas
 cd ../
 
 cd tingeso-pep2
-mvn clean install -DskipTests=True
-docker build -t jaramillo1337/pep2_tingeso-pep2 .
-docker push jaramillo1337/pep2_tingeso-pep2
+docker build -t jaramillo1337/pep2-tingeso-pep2 .
+docker push jaramillo1337/pep2-tingeso-pep2
 cd ../
+
+-----------------------------------------------------------------
+minikube start
+
+kubectl apply -f postgres-secrets.yml
+kubectl apply -f postgres-configmap.yml
+kubectl apply -f postgres-dp-sv-pvc.yml
+
+kubectl exec -it <Name pods postgres> bash -- psql -h postgres -U postgres
+
+CREATE DATABASE estudiantes;
+CREATE DATABASE archivos;
+CREATE DATABASE resumen;
+
+kubectl apply -f tingeso-pep2-deployment-service.yml
+kubectl apply -f backend-config-server-deployment-service.yml
+
+kubectl apply -f backend-eureka-deployment-service.yml
+
+kubectl apply -f estudiante-deployment-service.yml
+kubectl apply -f resumen-cuotas-deployment-service.yml
+kubectl apply -f subir-archivo-deployment-service.yml
+kubectl apply -f backend-gateway-deployment-service.yml

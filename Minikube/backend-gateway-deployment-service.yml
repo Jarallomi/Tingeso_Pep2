@@ -15,8 +15,8 @@ spec:
         app: backend-gateway-deployment
     spec:
       containers:
-        - name: pep2_backend-gateway
-          image: jaramillo1337/pep2_backend-gateway:latest
+        - name: pep2-backend-gateway
+          image: jaramillo1337/pep2-backend-gateway:latest
           ports:
             - containerPort: 8081
           env:
