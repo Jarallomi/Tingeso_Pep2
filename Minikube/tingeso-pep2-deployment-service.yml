@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tingeso-pep2-deployment
+  labels:
+    app: tingeso-pep2-deployment
+spec:
+  selector:
+    matchLabels:
+      app: tingeso-pep2-deployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tingeso-pep2-deployment
+    spec:
+      containers:
+        - name: pep2_tingeso-pep2
+          image: jaramillo1337/tingeso-pep2:latest
+          ports:
+            - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tingeso-pep2
+  labels:
+    app: tingeso-pep2
+spec:
+  selector:
+    app: tingeso-pep2-deployment
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+  type: LoadBalancer

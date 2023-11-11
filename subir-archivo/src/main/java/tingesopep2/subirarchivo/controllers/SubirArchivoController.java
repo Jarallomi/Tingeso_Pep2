@@ -31,16 +31,15 @@ public class SubirArchivoController {
     }
 
     @PostMapping("/")
-    public String upload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes){
+    public ResponseEntity<String> upload(@RequestParam("file") MultipartFile file){
         if (!file.isEmpty()){
             subirArchivo.guardar(file);
-            redirectAttributes.addFlashAttribute("mensaje", "Archivo subido con exito!");
             subirArchivo.leerArchivo(file);
+            return ResponseEntity.ok("Archivo subido con éxito!");
         }
         else{
-            redirectAttributes.addFlashAttribute("mensaje", "Error: el archivo esta vacio.");
+            return ResponseEntity.badRequest().body("Error: el archivo está vacío.");
         }
-        return "redirect:/subirArchivo";
     }
 
 }

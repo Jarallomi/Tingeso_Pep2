@@ -27,8 +27,7 @@ public class ResumenService {
     private RestTemplate restTemplate;
 
     public List<EstudianteModel> obtenerEstudiantes() {
-        ResponseEntity<List<EstudianteModel>> response = restTemplate.exchange(
-                "http://estudiante/estudiantes/",
+        ResponseEntity<List<EstudianteModel>> response = restTemplate.exchange("http://localhost:8080/estudiantes/",
                 HttpMethod.GET,
                 null,
                 new ParameterizedTypeReference<List<EstudianteModel>>() {});
@@ -36,15 +35,26 @@ public class ResumenService {
     }
 
     public Optional<SubirArchivoModel> obtenerArchivos(String rut_estudiante) {
-        ResponseEntity<SubirArchivoModel> response = restTemplate.getForEntity(
-                "http://subir-archivo/subirArchivo/" + rut_estudiante, SubirArchivoModel.class);
+        try {
+            ResponseEntity<SubirArchivoModel> response = restTemplate.getForEntity(
+                    "http://localhost:8080/subirArchivo/" + rut_estudiante, SubirArchivoModel.class);
+            return Optional.ofNullable(response.getBody());
+        } catch (Exception e) {
+            // Puedes elegir manejar la excepción de alguna manera aquí si lo necesitas
+            // Por ejemplo, puedes imprimir el stack trace si estás depurando:
+            // e.printStackTrace();
 
-        return Optional.ofNullable(response.getBody());
+            return Optional.empty();
+        }
     }
+
 
 
     public void guardarResumen(){
         List<EstudianteModel> estudiantes = obtenerEstudiantes();
+        System.out.println("\nESTUDIANTES:\n");
+        System.out.println(estudiantes);
+        System.out.println("\n");
 
         for (EstudianteModel estudiante : estudiantes){
             String rut = estudiante.getRut();
@@ -53,6 +63,8 @@ public class ResumenService {
             if(resumenOpcional.isEmpty()) {
                 Optional<SubirArchivoModel> archivoOpcional = obtenerArchivos(rut);
                 if (archivoOpcional.isPresent()) {
+                    System.out.println("\nESTÁ PRESENTE\n");
+                    System.out.println(archivoOpcional.get());
                     SubirArchivoModel archivo = archivoOpcional.get();
 
                     double monto_previo = calculosCuotas.calcularCuotaFinal(estudiante, archivo, 1500000);

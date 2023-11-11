@@ -1,4 +1,5 @@
 package tingesopep2.estudiante.controllers;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import tingesopep2.estudiante.entities.EstudianteEntity;
 import tingesopep2.estudiante.services.EstudianteService;
@@ -43,16 +44,12 @@ public class EstudianteController {
     }
 
     @PostMapping("/guardarEstudiante")
-    public String guardarEstudiante(@RequestParam String rut,
-                                    @RequestParam String apellidos,
-                                    @RequestParam String nombres,
-                                    @RequestParam String fecha_nacimiento,
-                                    @RequestParam String tipo_colegio,
-                                    @RequestParam String nombre_colegio,
-                                    @RequestParam Integer anio_egreso,
-                                    @RequestParam String tipo_pago,
-                                    @RequestParam Integer n_cuotas){
-        estudianteService.guardarEstudiante(rut, apellidos, nombres, fecha_nacimiento, tipo_colegio, nombre_colegio, anio_egreso, tipo_pago, n_cuotas);
-        return "registroEstudiante";
+    public ResponseEntity<EstudianteEntity> guardarEstudiante(@RequestBody EstudianteEntity estudiante){
+        EstudianteEntity savedEstudiante = estudianteService.guardarEstudiante(estudiante);
+        if (savedEstudiante == null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+        return ResponseEntity.ok(savedEstudiante);
     }
+
 }

@@ -1,0 +1,69 @@
+.lista-container {
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+.lista-container .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.lista-container h1 {
+    margin-bottom: 0;
+}
+
+.lista-container .btn {
+    align-self: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+}
+
+th {
+    background-color: #343a40;
+    color: #ffffff;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Estilos para el botón de registrar pago de cuotas */
+.btn-primary {
+    background-color: #007bff; /* Fondo azul */
+    color: white; /* Letras blancas */
+    padding: 6px 12px; /* Espaciado interno */
+    border-radius: 4px; /* Bordes redondeados */
+    text-decoration: none; /* Quitar subrayado del texto */
+    display: inline-block; /* Mostrar como bloque en línea */
+    font-size: 0.9em; /* Tamaño de fuente un poco menor */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Color más oscuro al pasar el mouse */
+}
+
+.btn-secondary {
+    cursor: pointer;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+.btn-secondary:hover {
+    background-color: #004494;
+}

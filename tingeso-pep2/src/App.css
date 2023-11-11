@@ -1,0 +1,44 @@
+/* Estilos para App.css */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+nav {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  margin-bottom: 10px; /* Espacio entre botones */
+}
+
+nav ul li:last-child {
+  margin-bottom: 0; /* No hay margen después del último botón */
+}
+
+nav ul li a {
+  display: block;
+  background-color: #0056b3; /* Color de fondo de los botones */
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+  border-radius: 5px; /* Bordes redondeados */
+  transition: 0.3s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+nav ul li a:hover {
+  background-color: #004494; /* Color al pasar el ratón */
+}

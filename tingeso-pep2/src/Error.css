@@ -1,0 +1,38 @@
+/* Error.css */
+
+.container-error {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.alert-heading {
+    color: #721c24;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 768px) {
+    .container-error {
+        margin: 20px;
+        padding: 10px;
+    }
+}

@@ -1,0 +1,41 @@
+cd backend-config-server
+mvn clean install -DskipTests=True
+docker build -t jaramillo1337/pep2_backend-config-server .
+docker push jaramillo1337/pep2_backend-config-server
+cd ../
+
+cd backend-eureka
+mvn clean install -DskipTests=True
+docker build -t jaramillo1337/pep2_backend-eureka .
+docker push jaramillo1337/pep2_backend-eureka
+cd ../
+
+cd backend-gateway
+mvn clean install -DskipTests=True
+docker build -t jaramillo1337/pep2_backend-gateway .
+docker push jaramillo1337/pep2_backend-gateway
+cd ../
+
+cd estudiante
+mvn clean install -DskipTests=True
+docker build -t jaramillo1337/pep2_estudiante .
+docker push jaramillo1337/pep2_estudiante
+cd ../
+
+cd subir-archivo
+mvn clean install -DskipTests=True
+docker build -t jaramillo1337/pep2_subir-archivo .
+docker push jaramillo1337/pep2_subir-archivo
+cd ../
+
+cd resumen-cuotas
+mvn clean install -DskipTests=True
+docker build -t jaramillo1337/pep2_resumen-cuotas .
+docker push jaramillo1337/pep2_resumen-cuotas
+cd ../
+
+cd tingeso-pep2
+mvn clean install -DskipTests=True
+docker build -t jaramillo1337/pep2_tingeso-pep2 .
+docker push jaramillo1337/pep2_tingeso-pep2
+cd ../

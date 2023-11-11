@@ -21,7 +21,7 @@ public class EstudianteService {
         return (List<EstudianteEntity>) estudianteRepository.findAll();
     }
 
-    public void guardarEstudiante(String rut, String apellidos, String nombres, String fecha_nacimiento, String tipo_colegio, String nombre_colegio, Integer anio_egreso, String tipo_pago, Integer n_cuotas) {
+    public void guardarEstudiantes(String rut, String apellidos, String nombres, String fecha_nacimiento, String tipo_colegio, String nombre_colegio, Integer anio_egreso, String tipo_pago, Integer n_cuotas) {
         EstudianteEntity estudiante = new EstudianteEntity();
         estudiante.setRut(rut);
         estudiante.setApellidos(apellidos);
@@ -33,6 +33,10 @@ public class EstudianteService {
         estudiante.setTipo_pago(tipo_pago);
         estudiante.setN_cuotas(n_cuotas);
         estudianteRepository.save(estudiante);
+    }
+
+    public EstudianteEntity guardarEstudiante(EstudianteEntity estudiante) {
+        return estudianteRepository.save(estudiante);
     }
 
 }
