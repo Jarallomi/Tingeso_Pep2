@@ -27,23 +27,22 @@ public class ResumenService {
     private RestTemplate restTemplate;
 
     public List<EstudianteModel> obtenerEstudiantes() {
-        ResponseEntity<List<EstudianteModel>> response = restTemplate.exchange("http://localhost:8080/estudiantes/",
+        try{ResponseEntity<List<EstudianteModel>> response = restTemplate.exchange("http://estudiante/estudiantes/",
                 HttpMethod.GET,
                 null,
                 new ParameterizedTypeReference<List<EstudianteModel>>() {});
         return response.getBody();
+        } catch (Exception e) {
+            throw new RuntimeException("Error al buscar estudiantes", e);
+        }
     }
 
     public Optional<SubirArchivoModel> obtenerArchivos(String rut_estudiante) {
         try {
             ResponseEntity<SubirArchivoModel> response = restTemplate.getForEntity(
-                    "http://localhost:8080/subirArchivo/" + rut_estudiante, SubirArchivoModel.class);
+                    "http://subir-archivo/subirArchivo/" + rut_estudiante, SubirArchivoModel.class);
             return Optional.ofNullable(response.getBody());
         } catch (Exception e) {
-            // Puedes elegir manejar la excepción de alguna manera aquí si lo necesitas
-            // Por ejemplo, puedes imprimir el stack trace si estás depurando:
-            // e.printStackTrace();
-
             return Optional.empty();
         }
     }

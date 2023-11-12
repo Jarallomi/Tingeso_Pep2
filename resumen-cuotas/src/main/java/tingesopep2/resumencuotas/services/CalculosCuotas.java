@@ -16,8 +16,11 @@ public class CalculosCuotas {
     private RestTemplate restTemplate;
 
     public List<EstudianteModel> obtenerEstudiantes(String rut_estudiante) {
-        List<EstudianteModel> estudiantes = restTemplate.getForObject("http://localhost:8080/estudiantes/" + rut_estudiante, List.class);
+        try{List<EstudianteModel> estudiantes = restTemplate.getForObject("http://estudiante/estudiantes/" + rut_estudiante, List.class);
         return estudiantes;
+        } catch (Exception e) {
+            throw new RuntimeException("Error al buscar el estudiante: " + rut_estudiante, e);
+        }
     }
     public double calcularCuotaTipoColegio(EstudianteModel estudiante, double arancel){
         double cuotaFinal = arancel;

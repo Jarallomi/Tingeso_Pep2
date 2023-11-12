@@ -58,6 +58,6 @@ spec:
     app: estudiante-deployment
   ports:
     - protocol: TCP
-      port: 8082
-      targetPort: 8082
+      port: 8085
+      targetPort: 8085
   type: LoadBalancer

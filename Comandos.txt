@@ -46,7 +46,7 @@ kubectl apply -f postgres-secrets.yml
 kubectl apply -f postgres-configmap.yml
 kubectl apply -f postgres-dp-sv-pvc.yml
 
-kubectl exec -it <Name pods postgres> bash -- psql -h postgres -U postgres
+kubectl exec -it postgres-674dcd4496-p674r bash -- psql -h postgres -U postgres
 
 CREATE DATABASE estudiantes;
 CREATE DATABASE archivos;
@@ -57,10 +57,10 @@ kubectl apply -f backend-config-server-deployment-service.yml
 
 kubectl apply -f backend-eureka-deployment-service.yml
 
+kubectl apply -f backend-gateway-deployment-service.yml
 kubectl apply -f estudiante-deployment-service.yml
 kubectl apply -f resumen-cuotas-deployment-service.yml
 kubectl apply -f subir-archivo-deployment-service.yml
-kubectl apply -f backend-gateway-deployment-service.yml
 
 minikube service tingeso-pep2
 
