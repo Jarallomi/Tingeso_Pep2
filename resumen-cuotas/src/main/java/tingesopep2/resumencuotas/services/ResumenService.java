@@ -26,8 +26,18 @@ public class ResumenService {
     @Autowired
     private RestTemplate restTemplate;
 
+
+    public Optional<SubirArchivoModel> obtenerArchivos(String rut_estudiante) {
+        try {
+            ResponseEntity<SubirArchivoModel> response = restTemplate.getForEntity(
+                    "http://subir-archivo:8083/subirArchivo/" + rut_estudiante, SubirArchivoModel.class);
+            return Optional.ofNullable(response.getBody());
+        } catch (Exception e) {
+            return Optional.empty();
+        }
+    }
     public List<EstudianteModel> obtenerEstudiantes() {
-        try{ResponseEntity<List<EstudianteModel>> response = restTemplate.exchange("http://estudiante-service/estudiantes/",
+        try{ResponseEntity<List<EstudianteModel>> response = restTemplate.exchange("http://estudiante-service:8082/estudiantes/",
                 HttpMethod.GET,
                 null,
                 new ParameterizedTypeReference<List<EstudianteModel>>() {});
@@ -36,18 +46,6 @@ public class ResumenService {
             throw new RuntimeException("Error al buscar estudiantes", e);
         }
     }
-
-    public Optional<SubirArchivoModel> obtenerArchivos(String rut_estudiante) {
-        try {
-            ResponseEntity<SubirArchivoModel> response = restTemplate.getForEntity(
-                    "http://subir-archivo/subirArchivo/" + rut_estudiante, SubirArchivoModel.class);
-            return Optional.ofNullable(response.getBody());
-        } catch (Exception e) {
-            return Optional.empty();
-        }
-    }
-
-
 
     public void guardarResumen(){
         List<EstudianteModel> estudiantes = obtenerEstudiantes();

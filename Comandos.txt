@@ -46,7 +46,7 @@ kubectl apply -f postgres-secrets.yml
 kubectl apply -f postgres-configmap.yml
 kubectl apply -f postgres-dp-sv-pvc.yml
 
-kubectl exec -it postgres-674dcd4496-cd9bh bash -- psql -h postgres -U postgres
+kubectl exec -it postgres-674dcd4496-n7cwg bash -- psql -h postgres -U postgres
 
 CREATE DATABASE estudiantes;
 CREATE DATABASE archivos;

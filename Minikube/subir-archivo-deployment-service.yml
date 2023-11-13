@@ -58,6 +58,6 @@ spec:
     app: subir-archivo-deployment
   ports:
     - protocol: TCP
-      port: 8087
-      targetPort: 8087
+      port: 8083
+      targetPort: 8083
   type: LoadBalancer

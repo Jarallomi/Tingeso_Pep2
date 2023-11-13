@@ -16,7 +16,7 @@ public class CalculosCuotas {
     private RestTemplate restTemplate;
 
     public List<EstudianteModel> obtenerEstudiantes(String rut_estudiante) {
-        try{List<EstudianteModel> estudiantes = restTemplate.getForObject("http://estudiante-service/estudiantes/" + rut_estudiante, List.class);
+        try{List<EstudianteModel> estudiantes = restTemplate.getForObject("http://estudiante-service:8082/estudiantes/" + rut_estudiante, List.class);
         return estudiantes;
         } catch (Exception e) {
             throw new RuntimeException("Error al buscar el estudiante: " + rut_estudiante, e);
