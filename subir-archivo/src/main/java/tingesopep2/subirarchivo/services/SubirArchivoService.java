@@ -27,10 +27,6 @@ public class SubirArchivoService {
 
     private final Logger logg = LoggerFactory.getLogger(SubirArchivoService.class);
 
-    public ArrayList<SubirArchivoEntity> obtenerArchivo() {
-        return (ArrayList<SubirArchivoEntity>) archivoRepository.findAll();
-    }
-
     @Generated
     public String guardar(MultipartFile file){
         String filename = file.getOriginalFilename();

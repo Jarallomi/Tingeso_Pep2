@@ -34,31 +34,21 @@ public class ResumenController {
         return resumenService.obtenerTodosLosResumenes();
     }
 
-    /*@GetMapping("/registrarPagoCuotas")
-    public String mostrarFormularioPagoCuotas(@RequestParam("rut") String rut, Model model) {
-        model.addAttribute("rut", rut);
-        return "formularioPagoCuotas";
-    }*/
-
     @PostMapping("/registrarPagoCuotas")
     public ResponseEntity<?> registrarPagoCuotas(@RequestBody PagoCuotaRequest pagoCuotaRequest) {
         try {
             resumenService.modificarCuota(pagoCuotaRequest.getFechaPago(), pagoCuotaRequest.getRut());
-            return ResponseEntity.ok().build(); // Puedes devolver un objeto más informativo si es necesario
+            return ResponseEntity.ok().build();
         } catch (Exception e) {
-            // Manejo de la excepción, p.ej., si no se puede realizar el registro
             return ResponseEntity.badRequest().body("Error al procesar el pago de la cuota");
         }
     }
 
-    // Clase interna para manejar el cuerpo de la solicitud
     @Getter
     public static class PagoCuotaRequest {
         private String rut;
-        // Getter para la fecha de pago
         @Getter
         private Date fechaPago;
-
     }
 
 
