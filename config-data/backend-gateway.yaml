@@ -24,8 +24,8 @@ spring:
             allowed-headers: "*"
             allow-credentials: true
       routes:
-        - id: estudiante
-          uri: lb://estudiante
+        - id: estudiante-service
+          uri: lb://estudiante-service
           predicates:
             - Path=/estudiantes/**
         - id: subir-archivo

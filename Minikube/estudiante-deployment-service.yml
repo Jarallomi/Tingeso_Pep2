@@ -50,9 +50,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: estudiante
+  name: estudiante-service
   labels:
-    app: estudiante
+    app: estudiante-service
 spec:
   selector:
     app: estudiante-deployment

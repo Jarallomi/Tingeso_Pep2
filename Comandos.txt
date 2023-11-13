@@ -16,7 +16,7 @@ docker build -t jaramillo1337/pep2-backend-gateway .
 docker push jaramillo1337/pep2-backend-gateway
 cd ../
 
-cd estudiante
+cd estudiante-service
 mvn clean install -DskipTests=True
 docker build -t jaramillo1337/pep2-estudiante .
 docker push jaramillo1337/pep2-estudiante
@@ -46,7 +46,7 @@ kubectl apply -f postgres-secrets.yml
 kubectl apply -f postgres-configmap.yml
 kubectl apply -f postgres-dp-sv-pvc.yml
 
-kubectl exec -it postgres-674dcd4496-p674r bash -- psql -h postgres -U postgres
+kubectl exec -it postgres-674dcd4496-cd9bh bash -- psql -h postgres -U postgres
 
 CREATE DATABASE estudiantes;
 CREATE DATABASE archivos;

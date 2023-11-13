@@ -27,7 +27,7 @@ public class ResumenService {
     private RestTemplate restTemplate;
 
     public List<EstudianteModel> obtenerEstudiantes() {
-        try{ResponseEntity<List<EstudianteModel>> response = restTemplate.exchange("http://estudiante/estudiantes/",
+        try{ResponseEntity<List<EstudianteModel>> response = restTemplate.exchange("http://estudiante-service/estudiantes/",
                 HttpMethod.GET,
                 null,
                 new ParameterizedTypeReference<List<EstudianteModel>>() {});
